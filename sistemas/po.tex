@@ -1,0 +1,289 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+% la Hyperref opci\'on hyperref={pdfpagelabels=false} evita la advertencia :
+% Package hyperref Warning: Option `pdfpagelabels' is turned off
+% (hyperref)                because \thepage is undefined.
+% Hyperref stopped earl)y
+%
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+% elimina las siguientes advertencias:
+% LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
+% (Font)              size <5> substituted on input line 22.
+% LaTeX Font Warning: Size substitutions with differences
+% (Font)              up to 1.0pt have occurred.
+%
+
+% cuando  \titel{$B!D(B} \author{$B!D(B} posicina desp\'ues \begin{document} ,
+% aparece eso  advertencia: :
+% Package hyperref Warning: Option `pdfauthor' has already been used,
+% (hyperref) ...
+% Por tanto posicina lo antes de  \begin{document}
+
+\title{Prueba de oposición}
+\author{Lucas Gabriel Vuotto}
+\date{\today}
+
+
+% Adicional intercala package{beamerthemeshadow}
+\usepackage{beamerthemeshadow}
+%  causa que elementos que aparece en el futuro
+%  escribe ligero
+%\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+% funciona por tablas tamb\'\i en cuando aplica teTeX$B!D(B
+\begin{document}
+
+
+\begin{frame}
+\titlepage %portada
+\end{frame}
+
+
+\begin{frame}
+\frametitle{índice}
+\tableofcontents
+\end{frame}
+
+
+\section{Entorno}
+
+\begin{frame}
+\frametitle{}
+Acá iría en qué contexto se da el ejercicio. Posiblemente sería para cerrar
+esta sección antes de empezar con circiutos con retroalimentación.
+\end{frame}
+
+
+\section{Objetivos}
+
+\begin{frame}
+\frametitle{Objetivos}
+\begin{itemize}
+  \item Repasar circuitos secuenciales.
+  \item Demostrar que se puede hacer todo con \texttt{NAND} y mostrar las
+  pros y contras de hacerlo.
+  \item Implementar un full-adder.
+  \item Transformarme en ayudante.
+\end{itemize}
+\end{frame}
+
+
+\section{Ejercicio}
+
+\begin{frame}
+\frametitle{Enunciado}
+\textbf{Ejercicio 11}
+\begin{enumerate}
+  \item Diseñar un \textit{full adder} de 1 bit usando sólo compuertas NAND.
+  \item Suponiendo que todas las compuertas elementales tienen el mismo
+  retardo \textit{(delay)} $t$, calcule el retardo total del circuito para
+  producir todas sus señales de salida.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+Tabla de verdad de un \textit{full adder}
+\begin{center}\begin{tabular}{| c | c | c || c | c |}
+  \hline
+  $e_0$ & $e_1$ & $c_e$ & $s$ & $c_s$ \\ \hline
+    0   &   0   &   0   &  0  &   0   \\
+    0   &   1   &   0   &  1  &   0   \\
+    1   &   0   &   0   &  1  &   0   \\
+    1   &   1   &   0   &  0  &   1   \\
+    0   &   0   &   1   &  1  &   0   \\
+    0   &   1   &   1   &  0  &   1   \\
+    1   &   0   &   1   &  0  &   1   \\
+    1   &   1   &   1   &  1  &   1   \\
+  \hline
+\end{tabular}\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{dummy}
+Acá comentaría que tirarse a hacer el problema a lo cabeza puede ser un
+quilombo, que lo mejor es partirlo en problemas chiquititos y empezar a
+resolver desde ahí.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+Para los que no recuerdan, esto es la tabla de verdad de un NAND:
+\begin{center}\begin{tabular}{| c | c || c |}
+  \hline
+  $e_0$ & $e_1$ & $e_0$ \texttt{NAND} $e_1$ \\ \hline
+    0   &   0   &             1             \\
+    0   &   1   &             1             \\
+    1   &   0   &             1             \\
+    1   &   1   &             0             \\
+  \hline
+\end{tabular}\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{half adder}
+\\ ¡Grafiquito!
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito! Half adder + Half adder, salida del primero con carry in, or
+de los carries de salida.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito full adder en la derecha! tabla de verdad de un AND en la
+izquierda $\Rightarrow$ nos damos cuenta que es un NAND es un NOT-AND.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito full adder en la derecha! hacemos una tablita para hacer un
+NOT con un NAND.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito full adder en la derecha! updateamos la tablita del AND con
+la nueva info.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito full adder en la derecha! ahora hacemos un OR con NANDs,
+pensandolo un poquito \textcolor{red}{$\Rightarrow$ \textbf{ARMAR LA IDEA}}.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito full adder en la derecha! cerramos haciendo un XOR con NANDs,
+también con alguna idea de cómo inferirlo.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+NAND}
+\textit{full adder}
+\\ ¡Grafiquito full adder en la derecha! ahora vamos reemplazando en el
+grafico del full adder las compuertas AND, OR y XOR por sus equivalentes en
+NANDs.
+\end{frame}
+
+
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
+% NAND}
+% \textit{full adder}
+% \\ ¡Grafiquito full adder en la derecha!
+% \end{frame}
+
+
+\begin{frame}
+\frametitle{Sabiendo que las compuertas elementales tienen un delay de $t$,
+calcular el retardo total del circuito}
+\textit{Comparativa con un gráfico de cada lado}
+\\ Contar numeritos, hablar sobre pese a que te resuelve la vida
+especializarte en un solo tipo de compuerta, tenés que meter más cosas en el
+medio y pueden ser menos eficientes los circuitos
+\textcolor{red}{$\Rightarrow$ \textit{¿es chamuyo eso?}}
+\end{frame}
+
+
+\begin{frame}
+¿Preguntas?
+\end{frame}
+
+
+\end{document}

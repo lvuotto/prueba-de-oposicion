@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Entorno}{3}{0}{1}
+\beamer@sectionintoc {2}{Objetivos}{4}{0}{2}
+\beamer@sectionintoc {3}{Ejercicio}{5}{0}{3}
