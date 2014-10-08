@@ -7,6 +7,10 @@
 \usepackage{adjustbox}
 \usepackage{lmodern}
 
+\usetheme{Luebeck}
+\usecolortheme[rgb={0.67,0.05,0}]{structure}
+\usecolortheme{beaver}
+
 % elimina las siguientes advertencias:
 % LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 % (Font)              size <5> substituted on input line 22.
@@ -19,7 +23,7 @@
 
 
 % Adicional intercala package{beamerthemeshadow}
-\usepackage{beamerthemeshadow}
+%\usepackage{beamerthemeshadow}
 %  causa que elementos que aparece en el futuro
 %  escribe ligero
 %\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
@@ -33,7 +37,7 @@
 
 
 \begin{frame}
-\frametitle{índice}
+\frametitle{Índice}
 \tableofcontents
 \end{frame}
 
@@ -61,7 +65,7 @@ comenzar con circuitos secuenciales.
 \begin{frame}
 \frametitle{Objetivos}
 \begin{itemize}
-  \item Repasar circuitos secuenciales, en particular, aritméticos.
+  \item Repasar circuitos combinatorios, en particular, aritméticos.
   \item Mostrar cómo se realizan los circuitos en la vida real.
 \end{itemize}
 \end{frame}
@@ -83,7 +87,7 @@ También se lo eligió porque al menos se suele dar en clase el circuito del
 
 \begin{frame}
 \frametitle{Enunciado}
-\textbf{Ejercicio 11} \\
+\textbf{Ejercicio 11}
 {\tiny Organización del Computador I - práctica 2 (lógica digital) - segundo
 cuatrimestre del 2014.}
 \begin{enumerate}
@@ -99,27 +103,34 @@ cuatrimestre del 2014.}
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
 Tabla de verdad de un \textit{full adder}
-\begin{center}\begin{tabular}{| c | c | c || c | c |}
-  \hline
-  $e_0$ & $e_1$ & $c_e$ & $s$ & $c_s$ \\ \hline
-    0   &   0   &   0   &  0  &   0   \\
-    0   &   1   &   0   &  1  &   0   \\
-    1   &   0   &   0   &  1  &   0   \\
-    1   &   1   &   0   &  0  &   1   \\
-    0   &   0   &   1   &  1  &   0   \\
-    0   &   1   &   1   &  0  &   1   \\
-    1   &   0   &   1   &  0  &   1   \\
-    1   &   1   &   1   &  1  &   1   \\
-  \hline
-\end{tabular}\end{center}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{dummy}
-Acá comentaría que tirarse a hacer el problema a lo cabeza puede ser un
-quilombo, que lo mejor es partirlo en problemas chiquititos y empezar a
-resolver desde ahí.
+\begin{columns}
+  \column{.5\textwidth}
+    \pause
+    \begin{center}\begin{tabular}{| c | c || c | c |}
+      \hline
+      $e_0$ & $e_1$ & $s$ & $c$ \\ \hline
+        0   &   0   &  0  &  0  \\
+        0   &   1   &  1  &  0  \\
+        1   &   0   &  1  &  0  \\
+        1   &   1   &  0  &  1  \\
+      \hline
+    \end{tabular}\end{center}
+  \column{.5\textwidth}
+    \pause
+    \begin{center}\begin{tabular}{| c | c | c || c | c |}
+      \hline
+      $e_0$ & $e_1$ & $c_e$ & $s$ & $c_s$ \\ \hline
+        0   &   0   &   0   &  0  &   0   \\
+        0   &   1   &   0   &  1  &   0   \\
+        1   &   0   &   0   &  1  &   0   \\
+        1   &   1   &   0   &  0  &   1   \\
+        0   &   0   &   1   &  1  &   0   \\
+        0   &   1   &   1   &  0  &   1   \\
+        1   &   0   &   1   &  0  &   1   \\
+        1   &   1   &   1   &  1  &   1   \\
+      \hline
+    \end{tabular}\end{center}
+\end{columns}
 \end{frame}
 
 
@@ -154,12 +165,12 @@ compuertas NAND}
 compuertas NAND}
 \textit{Full adder}
 \begin{figure}[htp]
-  \includegraphics[scale=0.6]{fulladder.pdf}
+  \includegraphics[scale=0.9]{fulladder.pdf}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
 \textit{Full adder}
@@ -192,7 +203,7 @@ compuertas NAND}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
 \textit{Full adder}
@@ -213,10 +224,10 @@ compuertas NAND}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
-\textit{full adder}
+\textit{Full adder}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
@@ -251,10 +262,10 @@ compuertas NAND}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
-\textit{full adder}
+\textit{Full adder}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
@@ -287,10 +298,10 @@ compuertas NAND}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
-\textit{full adder}
+\textit{Full adder}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
@@ -306,10 +317,10 @@ compuertas NAND}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
 compuertas NAND}
-\textit{full adder}
+\textit{Full adder}
 \begin{columns}[T]
   \column{.5\textwidth}
   \begin{figure}[htp]
@@ -328,91 +339,28 @@ compuertas NAND}
 \end{frame}
 
 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-% 
-% 
-% \begin{frame}
-% \frametitle{Diseñar un \textit{full adder} de 1 bit usando sólo compuertas
-% NAND}
-% \textit{full adder}
-% \\ ¡Grafiquito full adder en la derecha!
-% \end{frame}
-
-
-\begin{frame}
+\begin{frame}[t]
 \frametitle{\small Sabiendo que las compuertas elementales tienen un delay
 de $t$, calcular el retardo total del circuito}
-\textit{Comparativa con un gráfico de cada lado}
-\\ Contar numeritos, hablar sobre pese a que te resuelve la vida
-especializarte en un solo tipo de compuerta, tenés que meter más cosas en el
-medio y pueden ser menos eficientes los circuitos
-\textcolor{red}{$\Rightarrow$ \textit{¿es chamuyo eso?}}
+\begin{columns}
+  \column{.5\textwidth}
+  \begin{figure}[htp]
+    \includegraphics<1-2>[scale=0.9]{fulladder.pdf}
+    \includegraphics<3>[scale=0.6]{halfadder.pdf}
+    \includegraphics<4->[scale=0.9]{fulladder.pdf}
+  \end{figure}
+  \pause
+  \only<2>{$t + 2 (\text{half adder})$}
+  \only<3>{$t + 2 (t + t)$}
+  \only<4->{$t + 2 (2t) = 5t$}
+  \column{.5\textwidth}
+  
+\end{columns}
 \end{frame}
 
 
 \begin{frame}
-¿Preguntas?
+\begin{center}\Large ¿Preguntas?\end{center}
 \end{frame}
 
 
