@@ -40,25 +40,42 @@
 
 \section{Entorno}
 
+\subsection{Contexto}
 \begin{frame}
-\frametitle{Entorno}
-Para este ejercicio, se asume que los alumnos conocen las compuertas lógicas
-básicas y cómo diseñar circuitos combinatorios.
+\frametitle{Contexto}
+Para este ejercicio, se asume que los alumnos tienen conocimientos sobre los
+siguiente temas:
+\begin{itemize}
+  \item compuertas lógicas básicas
+  \item operaciones con números binarios.
+  \item diseño de circuitos combinatorios.
+\end{itemize}
 
-Se recomienda dar este ejercicio a modo integratorio antes de comenzar con
-circuitos secuenciales.
+\vspace{0.5cm}
+Se recomienda dar este ejercicio \textbf{a modo integratorio}, antes de
+comenzar con circuitos secuenciales.
 \end{frame}
 
 
-\section{Objetivos}
-
+\subsection{Objetivos}
 \begin{frame}
 \frametitle{Objetivos}
 \begin{itemize}
-  \item Repasar circuitos secuenciales.
-  \item Mostrar que se puede hacer todo con \texttt{NAND}s.
-  \item Hacer el mejor esfuerzo para ser ayudante.
+  \item Repasar circuitos secuenciales, en particular, aritméticos.
+  \item Mostrar cómo se realizan los circuitos en la vida real.
 \end{itemize}
+\end{frame}
+
+
+\subsection{Justificación de la elección}
+\begin{frame}
+\frametitle{Justificación de la elección}
+Se eligió este ejercicio por ser interesante en el sentido de que ayuda a
+darle a los alumnos un vistazo de cómo se hacen las cosas en el mundo real.
+
+\vspace{0.5cm}
+También se lo eligió porque al menos se suele dar en clase el circuito del
+\textit{full adder}, mas no su implementación con NANDs.
 \end{frame}
 
 
@@ -66,7 +83,9 @@ circuitos secuenciales.
 
 \begin{frame}
 \frametitle{Enunciado}
-\textbf{Ejercicio 11}
+\textbf{Ejercicio 11} \\
+{\tiny Organización del Computador I - práctica 2 (lógica digital) - segundo
+cuatrimestre del 2014.}
 \begin{enumerate}
   \item Diseñar un \textit{full adder} de 1 bit usando sólo compuertas NAND.
   \item Suponiendo que todas las compuertas elementales tienen el mismo
@@ -135,7 +154,7 @@ compuertas NAND}
 compuertas NAND}
 \textit{Full adder}
 \begin{figure}[htp]
-  \includegraphics[scale=0.9]{fulladder.pdf}
+  \includegraphics[scale=0.6]{fulladder.pdf}
 \end{figure}
 \end{frame}
 
@@ -145,11 +164,11 @@ compuertas NAND}
 compuertas NAND}
 \textit{Full adder}
 \begin{columns}[T]
-  \column{.5\textwidth}
+  \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.9]{fulladder.pdf}
+    \includegraphics[scale=0.6]{fulladder.pdf}
   \end{figure}
-  \column{.5\textwidth}
+  \column{.7\textwidth}
   \begin{center}\begin{tabular}{| c | c || c |}
     \hline
     $e_0$ & $e_1$ & $e_0$ \texttt{AND} $e_1$ \\ \hline
@@ -178,11 +197,11 @@ compuertas NAND}
 compuertas NAND}
 \textit{Full adder}
 \begin{columns}[T]
-  \column{.5\textwidth}
+  \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.9]{fulladder.pdf}
+    \includegraphics[scale=0.6]{fulladder.pdf}
   \end{figure}
-  \column{.5\textwidth}
+  \column{.7\textwidth}
   \begin{center}\begin{tabular}{| c | c || c |}
     \hline
     $e$ & $1$ & NOT $e$ \\ \hline
@@ -199,24 +218,33 @@ compuertas NAND}
 compuertas NAND}
 \textit{full adder}
 \begin{columns}[T]
-  \column{.5\textwidth}
+  \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.9]{fulladder.pdf}
+    \includegraphics[scale=0.6]{fulladder.pdf}
   \end{figure}
 
-  \column{.5\textwidth}
-  %\adjustbox{max width=.5\textwidth}{
-  \small \begin{center}\begin{tabular}{| c | c || c | c || c |}
+  \column{.7\textwidth}
+  \begin{center}
+  \begin{tabular}{| c | c || c |}
     \hline
-    $e_0$ & $e_1$ & $e_0$ NAND $e_1$ & 1 &  $e_0$ NAND $e_1$ NAND $1$ \\
+    $e_0$ & $e_1$ & $e_0$ NAND $e_1$ $(p)$ \\ \hline
+      0   &   0   &            1           \\
+      0   &   1   &            1           \\
+      1   &   0   &            1           \\
+      1   &   1   &            0           \\
     \hline
-      0   &   0   &         1        & 1 &               0            \\
-      0   &   1   &         1        & 1 &               0            \\
-      1   &   0   &         1        & 1 &               0            \\
-      1   &   1   &         0        & 1 &               1            \\
+  \end{tabular}
+  \pause
+  \begin{tabular}{| c | c || c |}
     \hline
-  \end{tabular}\end{center}
-  %}
+    $p$ & 1 & $p$ NAND 1 \\ \hline
+     1  & 1 &      0     \\
+     1  & 1 &      0     \\
+     1  & 1 &      0     \\
+     0  & 1 &      1     \\
+    \hline
+  \end{tabular}
+  \end{center}
 \end{columns}
 % \\ ¡Grafiquito full adder en la derecha! updateamos la tablita del AND con
 % la nueva info.
@@ -228,12 +256,12 @@ compuertas NAND}
 compuertas NAND}
 \textit{full adder}
 \begin{columns}[T]
-  \column{.5\textwidth}
+  \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.9]{fulladder.pdf}
+    \includegraphics[scale=0.6]{fulladder.pdf}
   \end{figure}
 
-  \column{.5\textwidth}
+  \column{.7\textwidth}
   \begin{center}\begin{tabular}{| c | c || c |}
     \hline
     $e_0$ & $e_1$ & $e_0$ OR $e_1$ \\ \hline
@@ -264,12 +292,12 @@ compuertas NAND}
 compuertas NAND}
 \textit{full adder}
 \begin{columns}[T]
-  \column{.5\textwidth}
+  \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.9]{fulladder.pdf}
+    \includegraphics[scale=0.6]{fulladder.pdf}
   \end{figure}
 
-  \column{.5\textwidth}
+  \column{.7\textwidth}
   Recordemos, $e_0$ XOR $e_1$ = ($e_0$ OR $e_1$) AND ($\lnot e_0$ OR $\lnot
   e_1$)
 \end{columns}
