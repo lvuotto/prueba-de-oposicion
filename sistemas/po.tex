@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{array}
+\usepackage{caption}
 \usepackage{adjustbox}
 \usepackage{lmodern}
 
@@ -79,7 +80,7 @@ darle a los alumnos un vistazo de cómo se hacen las cosas en el mundo real.
 
 \vspace{0.5cm}
 También se lo eligió porque al menos se suele dar en clase el circuito del
-\textit{full adder}, mas no su implementación con NANDs.
+\textit{sumador simple}, mas no su implementación con NANDs.
 \end{frame}
 
 
@@ -91,7 +92,8 @@ También se lo eligió porque al menos se suele dar en clase el circuito del
 {\tiny Organización del Computador I - práctica 2 (lógica digital) - segundo
 cuatrimestre del 2014.}
 \begin{enumerate}
-  \item Diseñar un \textit{full adder} de 1 bit usando sólo compuertas NAND.
+  \item Diseñar un \textit{sumador completo} de 1 bit usando sólo compuertas
+  NAND.
   \item Suponiendo que todas las compuertas elementales tienen el mismo
   retardo \textit{(delay)} $t$, calcule el retardo total del circuito para
   producir todas sus señales de salida.
@@ -100,42 +102,68 @@ cuatrimestre del 2014.}
 
 
 \begin{frame}
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-Tabla de verdad de un \textit{full adder}
+Tablas de verdad
 \begin{columns}
   \column{.5\textwidth}
     \pause
-    \begin{center}\begin{tabular}{| c | c || c | c |}
+    \begin{center}\begin{table}
+    \begin{tabular}{| c | c || c | c |}
       \hline
-      $e_0$ & $e_1$ & $s$ & $c$ \\ \hline
+      $e_0$ & $e_1$ & $c$ & $s$ \\ \hline
         0   &   0   &  0  &  0  \\
-        0   &   1   &  1  &  0  \\
-        1   &   0   &  1  &  0  \\
-        1   &   1   &  0  &  1  \\
+        0   &   1   &  0  &  1  \\
+        1   &   0   &  0  &  1  \\
+        1   &   1   &  1  &  0  \\
       \hline
-    \end{tabular}\end{center}
+    \end{tabular}
+    \caption*{Sumador simple}
+    \end{table}\end{center}
   \column{.5\textwidth}
     \pause
-    \begin{center}\begin{tabular}{| c | c | c || c | c |}
+    \begin{center}\begin{table}
+    \begin{tabular}{| c | c | c || c | c |}
       \hline
       $e_0$ & $e_1$ & $c_e$ & $s$ & $c_s$ \\ \hline
         0   &   0   &   0   &  0  &   0   \\
-        0   &   1   &   0   &  1  &   0   \\
-        1   &   0   &   0   &  1  &   0   \\
-        1   &   1   &   0   &  0  &   1   \\
-        0   &   0   &   1   &  1  &   0   \\
-        0   &   1   &   1   &  0  &   1   \\
-        1   &   0   &   1   &  0  &   1   \\
+        0   &   1   &   0   &  0  &   1   \\
+        1   &   0   &   0   &  0  &   1   \\
+        1   &   1   &   0   &  1  &   0   \\
+        0   &   0   &   1   &  0  &   1   \\
+        0   &   1   &   1   &  1  &   0   \\
+        1   &   0   &   1   &  1  &   0   \\
         1   &   1   &   1   &  1  &   1   \\
       \hline
-    \end{tabular}\end{center}
+    \end{tabular}
+    \caption*{Sumador completo}
+    \end{table}\end{center}
 \end{columns}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{figure}[htp]
+  \caption{Sumador simple}
+  \includegraphics[scale=0.9]{sumador-simple.pdf}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{figure}[htp]
+  \caption{Sumador completo}
+  \includegraphics[scale=0.9]{sumador-completo.pdf}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
 Para los que no recuerdan, esto es la tabla de verdad de un NAND:
 \begin{center}\begin{tabular}{| c | c || c |}
@@ -151,33 +179,111 @@ Para los que no recuerdan, esto es la tabla de verdad de un NAND:
 
 
 \begin{frame}
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Half adder}
-\begin{figure}[htp]
-  \includegraphics[scale=0.9]{halfadder.pdf}
-\end{figure}
+\begin{center}Método matemático\end{center}
+\begin{align*}
+  s   &= e_0 \oplus e_1 \oplus c_e \\
+  c_s &= (e_0 . e_1) + (e_0 \oplus e_1) . c_e
+\end{align*}
+\pause
+\begin{center}{\Large ¡Aburrido!}\end{center}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
-\begin{figure}[htp]
-  \includegraphics[scale=0.9]{fulladder.pdf}
-\end{figure}
+\begin{center}
+  Método gráfico
+  \\ {\tiny (sigue siendo medio matemático)}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{center}AND\end{center}
+\begin{align*}
+  \onslide<1->{x | y &= \overline{x . y} \Rightarrow \\}
+  \onslide<2->{x . y &= }
+  \onslide<3->{\overline{\overline{x . y}} = }
+  \onslide<4->{\overline{x | y}}
+\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{center}OR\end{center}
+\begin{align*}
+  \onslide<1->{x | y &= \overline{x . y} = \bar{x} + \bar{y} \Rightarrow \\}
+  \onslide<2->{\bar{x} | \bar{y} &=
+               \overline{\bar{x} . \bar{y}} =
+               \bar{\bar{x}} + \bar{\bar{y}} =
+               x + y}
+\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{center}XOR\end{center}
+\begin{align*}
+  \onslide<1->{x \oplus y &= (x + y) . (\bar{x} + \bar{y}) \\}
+  \onslide<2->{ &= (\bar{x} | \bar{y}) . (x | y) \\}
+  \onslide<3->{ &= \overline{(\bar{x} | \bar{y}) | (x | y)}}
+\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{center}NOT\end{center}
+\begin{align*}
+  \onslide<1->{x &= x . x \Rightarrow }
+  \onslide<2->{\bar{x} = \overline{x . x}}
+  \onslide<3->{ = x | x}
+\end{align*}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
+compuertas NAND}
+\begin{center}Resumen\end{center}
+\only<1>{
+\begin{align*}
+  x . y &= \overline{x | y} \\
+  x + y &= \bar{x} | \bar{y} \\
+  x \oplus y &=  \overline{(\bar{x} | \bar{y}) | (x | y)} \\
+  \bar{x} &= x | x
+\end{align*}
+}
+\only<2>{
+\begin{align*}
+  x . y &= (x | y) | (x | y) \\
+  x + y &= (x | x) | (y | y) \\
+  x \oplus y &= [((x | x) | (y | y)) \ | \ (x | y)] \ | \ 
+                [((x | x) | (y | y)) \ | \ (x | y)] \\
+  \bar{x} &= x | x
+\end{align*}
+}
 \end{frame}
 
 
 \begin{frame}[t]
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
+\textit{Sumador simple}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.6]{fulladder.pdf}
+    \includegraphics[scale=0.6]{sumador-completo.pdf}
   \end{figure}
   \column{.7\textwidth}
   \begin{center}\begin{tabular}{| c | c || c |}
@@ -204,13 +310,13 @@ compuertas NAND}
 
 
 \begin{frame}[t]
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
+\textit{Sumador simple}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.6]{fulladder.pdf}
+    \includegraphics[scale=0.6]{sumador-completo.pdf}
   \end{figure}
   \column{.7\textwidth}
   \begin{center}\begin{tabular}{| c | c || c |}
@@ -225,13 +331,13 @@ compuertas NAND}
 
 
 \begin{frame}[t]
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
+\textit{Sumador simple}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.6]{fulladder.pdf}
+    \includegraphics[scale=0.6]{sumador-completo.pdf}
   \end{figure}
 
   \column{.7\textwidth}
@@ -257,19 +363,19 @@ compuertas NAND}
   \end{tabular}
   \end{center}
 \end{columns}
-% \\ ¡Grafiquito full adder en la derecha! updateamos la tablita del AND con
+% \\ ¡Grafiquito sumador simple en la derecha! updateamos la tablita del AND con
 % la nueva info.
 \end{frame}
 
 
 \begin{frame}[t]
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
+\textit{Sumador simple}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.6]{fulladder.pdf}
+    \includegraphics[scale=0.6]{sumador-completo.pdf}
   \end{figure}
 
   \column{.7\textwidth}
@@ -293,48 +399,48 @@ compuertas NAND}
     \hline
   \end{tabular}\end{center}
 \end{columns}
-% \\ ¡Grafiquito full adder en la derecha! ahora hacemos un OR con NANDs,
+% \\ ¡Grafiquito sumador simple en la derecha! ahora hacemos un OR con NANDs,
 % pensandolo un poquito \textcolor{red}{$\Rightarrow$ \textbf{ARMAR LA IDEA}}.
 \end{frame}
 
 
 \begin{frame}[t]
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
+\textit{Sumador simple}
 \begin{columns}[T]
   \column{.3\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.6]{fulladder.pdf}
+    \includegraphics[scale=0.6]{sumador-completo.pdf}
   \end{figure}
 
   \column{.7\textwidth}
   Recordemos, $e_0$ XOR $e_1$ = ($e_0$ OR $e_1$) AND ($\lnot e_0$ OR $\lnot
   e_1$)
 \end{columns}
-% \\ ¡Grafiquito full adder en la derecha! cerramos haciendo un XOR con NANDs,
+% \\ ¡Grafiquito sumador simple en la derecha! cerramos haciendo un XOR con NANDs,
 % también con alguna idea de cómo inferirlo.
 \end{frame}
 
 
 \begin{frame}[t]
-\frametitle{\small Diseñar un \textit{full adder} de 1 bit usando sólo
+\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
 compuertas NAND}
-\textit{Full adder}
+\textit{Sumador simple}
 \begin{columns}[T]
   \column{.5\textwidth}
   \begin{figure}[htp]
-    \includegraphics[scale=0.9]{fulladder.pdf}
+    \includegraphics[scale=0.9]{sumador-completo.pdf}
   \end{figure}
 
   \column{.5\textwidth}
   \begin{figure}[htp]
-    \includegraphics<1>[scale=0.9]{halfadder.pdf}
-    \includegraphics<2>[scale=0.9]{fulladder.pdf}
+    \includegraphics<1>[scale=0.9]{sumador-simple.pdf}
+    \includegraphics<2>[scale=0.9]{sumador-completo.pdf}
   \end{figure}
 \end{columns}
-% \\ ¡Grafiquito full adder en la derecha! ahora vamos reemplazando en el
-% grafico del full adder las compuertas AND, OR y XOR por sus equivalentes en
+% \\ ¡Grafiquito sumador simple en la derecha! ahora vamos reemplazando en el
+% grafico del sumador simple las compuertas AND, OR y XOR por sus equivalentes en
 % NANDs.
 \end{frame}
 
@@ -345,12 +451,12 @@ de $t$, calcular el retardo total del circuito}
 \begin{columns}
   \column{.5\textwidth}
   \begin{figure}[htp]
-    \includegraphics<1-2>[scale=0.9]{fulladder.pdf}
-    \includegraphics<3>[scale=0.6]{halfadder.pdf}
-    \includegraphics<4->[scale=0.9]{fulladder.pdf}
+    \includegraphics<1-2>[scale=0.9]{sumador-completo.pdf}
+    \includegraphics<3>[scale=0.6]{sumador-simple.pdf}
+    \includegraphics<4->[scale=0.9]{sumador-completo.pdf}
   \end{figure}
   \pause
-  \only<2>{$t + 2 (\text{half adder})$}
+  \only<2>{$t + 2 (\text{sumador simple})$}
   \only<3>{$t + 2 (t + t)$}
   \only<4->{$t + 2 (2t) = 5t$}
   \column{.5\textwidth}
