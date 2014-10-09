@@ -13,7 +13,7 @@
    height="276"
    id="svg5037"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="sumador-completo-nand-opt.svg">
   <defs
      id="defs5039" />
@@ -24,16 +24,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="126.44697"
-     inkscape:cy="65.612734"
+     inkscape:zoom="1.4"
+     inkscape:cx="241.62977"
+     inkscape:cy="171.81275"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="970"
+     inkscape:window-width="1366"
+     inkscape:window-height="713"
      inkscape:window-x="0"
-     inkscape:window-y="31"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="1"
      fit-margin-left="15"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -478,11 +478,11 @@
        sodipodi:cy="42.919643"
        sodipodi:rx="2.5669644"
        sodipodi:ry="2.5"
-       d="m 109.10714,42.919643 a 2.5669644,2.5 0 1 1 -5.13393,0 2.5669644,2.5 0 1 1 5.13393,0 z"
+       d="m 109.10714,42.919643 c 0,1.380712 -1.14927,2.5 -2.56696,2.5 -1.4177,0 -2.56697,-1.119288 -2.56697,-2.5 0,-1.380711 1.14927,-2.5 2.56697,-2.5 1.41769,0 2.56696,1.119289 2.56696,2.5 z"
        transform="matrix(0.5843478,0,0,0.6,227.24348,80.623214)" />
     <path
        style="fill:none;stroke:#00ff7f;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-       d="m 289.5,106.362 0,14.5 c 0,0 2,0.14201 2,2 0,1.85799 -2,2 -2,2 l 0,27.5 c 0,0 2,-0.0589 2,2 0,2.05888 -2,2 -2,2 l 0,126.50018 8.5,0 0,4"
+       d="m 289.5,106.362 0,14.5 c 0,0 -2,0.14201 -2,2 0,1.85799 2,2 2,2 l 0,27.5 c 0,0 -2,-0.0589 -2,2 0,2.05888 2,2 2,2 l 0,126.50018 8.5,0 0,4"
        id="path3828-2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cczcczcccc" />

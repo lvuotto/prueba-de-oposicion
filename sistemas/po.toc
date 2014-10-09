@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.10pt}
+\beamer@endinputifotherversion {3.24pt}
 \select@language {spanish}
 \beamer@sectionintoc {1}{Entorno}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{Contexto}{3}{0}{1}
