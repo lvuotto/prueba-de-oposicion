@@ -291,193 +291,27 @@ compuertas NAND}
 \end{frame}
 
 
-
-\begin{frame}[t]
-\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
-compuertas NAND}
-\textit{Sumador simple}
-\begin{columns}[T]
-  \column{.3\textwidth}
-  \begin{figure}[htp]
-    \includegraphics[scale=0.6]{sumador-completo.pdf}
-  \end{figure}
-  \column{.7\textwidth}
-  \begin{center}\begin{tabular}{| c | c || c |}
-    \hline
-    $e_0$ & $e_1$ & $e_0$ \texttt{AND} $e_1$ \\ \hline
-      0   &   0   &             0            \\
-      0   &   1   &             0            \\
-      1   &   0   &             0            \\
-      1   &   1   &             1            \\
-    \hline
-  \end{tabular}\end{center}
-  \pause
-  \begin{center}\begin{tabular}{| c | c || c |}
-    \hline
-    $e_0$ & $e_1$ & $e_0$ \texttt{NAND} $e_1$ \\ \hline
-      0   &   0   &              1            \\
-      0   &   1   &              1            \\
-      1   &   0   &              1            \\
-      1   &   1   &              0            \\
-    \hline
-  \end{tabular}\end{center}
-\end{columns}
-\end{frame}
-
-
-\begin{frame}[t]
-\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
-compuertas NAND}
-\textit{Sumador simple}
-\begin{columns}[T]
-  \column{.3\textwidth}
-  \begin{figure}[htp]
-    \includegraphics[scale=0.6]{sumador-completo.pdf}
-  \end{figure}
-  \column{.7\textwidth}
-  \begin{center}\begin{tabular}{| c | c || c |}
-    \hline
-    $e$ & $1$ & NOT $e$ \\ \hline
-     0  &  1  &    1    \\
-     1  &  1  &    0    \\
-    \hline
-  \end{tabular}\end{center}
-\end{columns}
-\end{frame}
-
-
-\begin{frame}[t]
-\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
-compuertas NAND}
-\textit{Sumador simple}
-\begin{columns}[T]
-  \column{.3\textwidth}
-  \begin{figure}[htp]
-    \includegraphics[scale=0.6]{sumador-completo.pdf}
-  \end{figure}
-
-  \column{.7\textwidth}
-  \begin{center}
-  \begin{tabular}{| c | c || c |}
-    \hline
-    $e_0$ & $e_1$ & $e_0$ NAND $e_1$ $(p)$ \\ \hline
-      0   &   0   &            1           \\
-      0   &   1   &            1           \\
-      1   &   0   &            1           \\
-      1   &   1   &            0           \\
-    \hline
-  \end{tabular}
-  \pause
-  \begin{tabular}{| c | c || c |}
-    \hline
-    $p$ & 1 & $p$ NAND 1 \\ \hline
-     1  & 1 &      0     \\
-     1  & 1 &      0     \\
-     1  & 1 &      0     \\
-     0  & 1 &      1     \\
-    \hline
-  \end{tabular}
-  \end{center}
-\end{columns}
-% \\ ¡Grafiquito sumador simple en la derecha! updateamos la tablita del AND con
-% la nueva info.
-\end{frame}
-
-
-\begin{frame}[t]
-\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
-compuertas NAND}
-\textit{Sumador simple}
-\begin{columns}[T]
-  \column{.3\textwidth}
-  \begin{figure}[htp]
-    \includegraphics[scale=0.6]{sumador-completo.pdf}
-  \end{figure}
-
-  \column{.7\textwidth}
-  \begin{center}\begin{tabular}{| c | c || c |}
-    \hline
-    $e_0$ & $e_1$ & $e_0$ OR $e_1$ \\ \hline
-      0   &   0   &        0       \\
-      0   &   1   &        1       \\
-      1   &   0   &        1       \\
-      1   &   1   &        1       \\
-    \hline
-  \end{tabular}\end{center}
-  \pause
-  \begin{center}\begin{tabular}{| c | c || c |}
-    \hline
-    $e_0$ & $e_1$ & $e_0$ NAND $e_1$ \\ \hline
-      1   &   1   &         0        \\
-      1   &   0   &         1        \\
-      0   &   1   &         1        \\
-      0   &   0   &         1        \\
-    \hline
-  \end{tabular}\end{center}
-\end{columns}
-% \\ ¡Grafiquito sumador simple en la derecha! ahora hacemos un OR con NANDs,
-% pensandolo un poquito \textcolor{red}{$\Rightarrow$ \textbf{ARMAR LA IDEA}}.
-\end{frame}
-
-
-\begin{frame}[t]
-\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
-compuertas NAND}
-\textit{Sumador simple}
-\begin{columns}[T]
-  \column{.3\textwidth}
-  \begin{figure}[htp]
-    \includegraphics[scale=0.6]{sumador-completo.pdf}
-  \end{figure}
-
-  \column{.7\textwidth}
-  Recordemos, $e_0$ XOR $e_1$ = ($e_0$ OR $e_1$) AND ($\lnot e_0$ OR $\lnot
-  e_1$)
-\end{columns}
-% \\ ¡Grafiquito sumador simple en la derecha! cerramos haciendo un XOR con NANDs,
-% también con alguna idea de cómo inferirlo.
-\end{frame}
-
-
-\begin{frame}[t]
-\frametitle{\small Diseñar un \textit{sumador completo} de 1 bit usando sólo
-compuertas NAND}
-\textit{Sumador simple}
-\begin{columns}[T]
-  \column{.5\textwidth}
-  \begin{figure}[htp]
-    \includegraphics[scale=0.9]{sumador-completo.pdf}
-  \end{figure}
-
-  \column{.5\textwidth}
-  \begin{figure}[htp]
-    \includegraphics<1>[scale=0.9]{sumador-simple.pdf}
-    \includegraphics<2>[scale=0.9]{sumador-completo.pdf}
-  \end{figure}
-\end{columns}
-% \\ ¡Grafiquito sumador simple en la derecha! ahora vamos reemplazando en el
-% grafico del sumador simple las compuertas AND, OR y XOR por sus equivalentes en
-% NANDs.
-\end{frame}
-
-
 \begin{frame}[t]
 \frametitle{\small Sabiendo que las compuertas elementales tienen un delay
 de $t$, calcular el retardo total del circuito}
-\begin{columns}
-  \column{.5\textwidth}
-  \begin{figure}[htp]
-    \includegraphics<1-2>[scale=0.9]{sumador-completo.pdf}
-    \includegraphics<3>[scale=0.6]{sumador-simple.pdf}
-    \includegraphics<4->[scale=0.9]{sumador-completo.pdf}
-  \end{figure}
-  \pause
-  \only<2>{$t + 2 (\text{sumador simple})$}
-  \only<3>{$t + 2 (t + t)$}
-  \only<4->{$t + 2 (2t) = 5t$}
-  \column{.5\textwidth}
-  
-\end{columns}
+\onslide<1-2>{
+\begin{figure}[htp]
+  \includegraphics<1>[scale=0.75]{sumador-completo.pdf}
+  \includegraphics<2>[scale=0.75]{sumador-completo-nand-opt.pdf}
+\end{figure}}
+
+\onslide<3->{
+\begin{itemize}
+  \item<3-> Sumador completo convencional: \begin{itemize}
+    \item $s \to 2t$
+    \item $c_s \to 3t$
+  \end{itemize}
+  \item<4-> Sumador completo con NANDs: \begin{itemize}
+    \item $s \to 8t$
+    \item $c_s \to 6t$
+  \end{itemize}
+\end{itemize}
+}
 \end{frame}
 
 
