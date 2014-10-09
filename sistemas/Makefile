@@ -6,3 +6,6 @@ FIGS=sumador-simple.pdf \
 
 po.pdf: po.tex $(FIGS)
 	pdflatex $<
+
+po-entregable.pdf: po-entregable.tex $(FIGS)
+	pdflatex $<
